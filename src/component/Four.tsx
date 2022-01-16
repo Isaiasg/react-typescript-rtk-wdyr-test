@@ -1,8 +1,10 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import AppContext from '../store/app-context';
+import React, { memo, useContext, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppData, counterActions } from '../store/store';
 
-export const Four = (() => {
-    const appContext = useContext(AppContext);
+export const Four = memo(() => {
+    const dispatch = useDispatch();
+    const count = useSelector<AppData>((state) => state.countFour);
     const renders = useRef(1);
 
     useEffect(() => {renders.current++});
@@ -10,7 +12,7 @@ export const Four = (() => {
     return (
         <>
             Four Renders: {renders.current}
-            <button onClick={() => appContext.changeState({ ...appContext, countFour: appContext.countFour+1 })}>useContext {appContext.countFour}</button>
+            <button onClick={() => dispatch(counterActions.incrementFour())}>useContext {count}</button>
         </>
     );
 });

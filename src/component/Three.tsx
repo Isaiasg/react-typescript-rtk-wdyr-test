@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import AppContext from '../store/app-context';
+import React, { memo, useContext, useEffect, useRef } from 'react';
 import { Four } from './Four';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppData, counterActions } from '../store/store';
 
-
-export const Three = (() => {
-    const appContext = useContext(AppContext);
+export const Three = memo(() => {
+    const dispatch = useDispatch();
+    const count = useSelector<AppData>((state) => state.countThree);
     const renders = useRef(1);
 
     useEffect(() => { renders.current++ });
@@ -12,7 +13,7 @@ export const Three = (() => {
     return (
         <>
             Three Renders: {renders.current}
-            <button onClick={() => appContext.changeState({ ...appContext, countThree: appContext.countThree + 1 })}>useContext {appContext.countThree}</button>
+            <button onClick={() => dispatch(counterActions.incrementThree())}>reduxToolkit {count}</button>
             <div>
                 <Four />
             </div>
