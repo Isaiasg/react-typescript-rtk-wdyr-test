@@ -1,4 +1,4 @@
-import React, { memo, useContext, useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { Three } from './Three';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppData, counterActions } from '../store/store';

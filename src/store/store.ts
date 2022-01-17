@@ -1,13 +1,13 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-export interface AppData{
-    countOne:number,
-    countTwo:number,
-    countThree:number,
-    countFour:number
+export interface AppData {
+    countOne: number,
+    countTwo: number,
+    countThree: number,
+    countFour: number
 }
 
-const initialState:AppData = {
+const initialState: AppData = {
     countOne: 0,
     countTwo: 0,
     countThree: 0,
