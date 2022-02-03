@@ -4,24 +4,25 @@ export interface AppData {
     countOne: number,
     countTwo: number,
     countThree: number,
-    countFour: number
+    countFour: number,
 }
 
 const initialState: AppData = {
     countOne: 0,
     countTwo: 0,
     countThree: 0,
-    countFour: 0
+    countFour: 0,
+
 };
 
 const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        incrementOne(state) { state.countOne++ },
-        incrementTwo(state) { state.countTwo++ },
-        incrementThree(state) { state.countThree++ },
-        incrementFour(state) { state.countFour++ }
+        incrementOne: (state: AppData) => { state.countOne++ },
+        incrementTwo: (state: AppData) => { state.countTwo++ },
+        incrementThree: (state: AppData) => { state.countThree++ },
+        incrementFour: (state: AppData) => { state.countFour++ }
     }
 });
 

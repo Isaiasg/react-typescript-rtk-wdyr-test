@@ -3,7 +3,7 @@ import { Two } from './Two';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppData, counterActions } from '../store/store';
 
-export const One = memo(() => {
+const One = memo(() => {
     const renders = useRef(1);
     const dispatch = useDispatch();
     const count = useSelector<AppData>((state) => state.countOne);
@@ -20,3 +20,8 @@ export const One = memo(() => {
         </>
     );
 });
+
+One.whyDidYouRender = {
+    logOnDifferentValues:true
+};
+export { One };
